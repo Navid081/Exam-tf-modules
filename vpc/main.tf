@@ -4,7 +4,6 @@ locals {
 
 #module "meta" {
   #source = "../meta"
-
   #source = "${path.module}/../meta"
   #source = "/home/n/Desktop/Development/modules/meta"       # Hardcoded due to Terragrunt cache structure
   #meta   = var.meta
@@ -14,7 +13,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 
-  name = module.meta.name
+  #name = module.meta.name
   cidr = var.cidr
 
   azs                           = ["${local.region}a", "${local.region}b"]
