@@ -10,8 +10,6 @@ locals {
   #meta   = var.meta
 #}
 
-source = "${path.module}/../meta"
-
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
