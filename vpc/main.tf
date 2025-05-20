@@ -2,12 +2,13 @@ locals {
   region = var.region
 }
 
-module "meta" {
-  #source = "/home/n/Desktop/Development/modules/meta"       # Hardcoded due to Terragrunt cache structure
+#module "meta" {
   source = "../meta"
+
   #source = "${path.module}/../meta"
-  meta   = var.meta
-}
+  #source = "/home/n/Desktop/Development/modules/meta"       # Hardcoded due to Terragrunt cache structure
+  #meta   = var.meta
+#}
 
 source = "${path.module}/../meta"
 
