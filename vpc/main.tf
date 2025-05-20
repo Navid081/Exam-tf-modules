@@ -4,8 +4,8 @@ locals {
 
 module "meta" {
   #source = "/home/n/Desktop/Development/modules/meta"       # Hardcoded due to Terragrunt cache structure
-  #source = "../meta"
-  source = "${path.module}/../meta"
+  source = "../meta"
+  #source = "${path.module}/../meta"
   meta   = var.meta
 }
 
