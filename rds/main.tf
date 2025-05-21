@@ -1,5 +1,5 @@
 module "meta" {
-  source = "../meta"       # Hardcoded due to Terragrunt cache structure
+  source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
   meta   = var.meta
 }
 
@@ -24,29 +24,19 @@ module "db" {
   port                        = "5432"
 
   iam_database_authentication_enabled = true
-
-  deletion_protection = var.deletion_protection
-
-  apply_immediately = var.apply_immediately
-
-  multi_az = var.multi_az
-
-  vpc_security_group_ids = [module.security_group.security_group_id]
-
-  maintenance_window      = "Mon:00:00-Mon:03:00"
-  backup_window           = "03:00-06:00"
-  backup_retention_period = 7
-
-  create_db_subnet_group = true
-  subnet_ids             = var.subnet_ids
-
-  family = var.family
-
-  major_engine_version = var.major_engine_version
-
-  parameters = var.parameters
-
-  options = var.options
+  deletion_protection       = var.deletion_protection
+  apply_immediately         = var.apply_immediately
+  multi_az                  = var.multi_az
+  vpc_security_group_ids    = [module.security_group.security_group_id]
+  maintenance_window        = "Mon:00:00-Mon:03:00"
+  backup_window             = "03:00-06:00"
+  backup_retention_period   = 7
+  create_db_subnet_group    = true
+  subnet_ids                = var.subnet_ids
+  family                    = var.family
+  major_engine_verson       = var.major_engine_version
+  parameters                = var.parameters
+  options                   = var.options
 }
 
 
