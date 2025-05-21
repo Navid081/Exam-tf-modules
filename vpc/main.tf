@@ -16,7 +16,7 @@ module "vpc" {
   version = "5.0.0"
 
   name = module.meta.name
-  name = "${var.meta.basename}-${var.meta.environment}"
+  #name = "${var.meta.basename}-${var.meta.environment}"
 
   cidr = var.cidr
 
@@ -41,8 +41,8 @@ module "vpc" {
   create_flow_log_cloudwatch_iam_role  = true
   flow_log_max_aggregation_interval    = 60
   vpc_flow_log_tags = {
-    #Name = "${module.meta.name}-all-traffic"
-    Name = "${var.meta.basename}-${var.meta.environment}-all-traffic"
+    Name = "${module.meta.name}-all-traffic"
+    #Name = "${var.meta.basename}-${var.meta.environment}-all-traffic"
   }
 
   # required for service discovery
