@@ -1,9 +1,9 @@
-variable "meta" {
-  type = object({
+variable "meta" {                     # Här defineras vilka värden modulen kan ta emot.
+  type = object({                     # Om de är default eller inte.
     owner       = string
-    basename    = string
-    environment = string
-  })
+    basename    = string              # Om jag inte skickar värden från TG.
+    environment = string              # Används default värdet som är satta här
+  })                                  # Vi kan skriva över dom som är satta genom TG.
 }
 
 variable "region" {

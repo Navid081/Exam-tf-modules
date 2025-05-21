@@ -1,6 +1,6 @@
 output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = module.vpc.vpc_id
+  description = "The ID of the VPC"       # vad modulen skickar tillbaka. TG/andra mod
+  value       = module.vpc.vpc_id         # kan använda dessa via "dependency.vpc.outputs
 }
 
 output "vpc_arn" {
