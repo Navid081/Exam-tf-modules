@@ -2,13 +2,13 @@ locals {
   region = var.region
 }
 
-#module "meta" {
+module "meta" {
   source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
   #source = "${path.module}/../meta"
   #source = "../meta"
   #source = "/home/n/Desktop/Development/modules/meta"
   #meta   = var.meta
-#}
+}
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
