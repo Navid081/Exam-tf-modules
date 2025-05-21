@@ -3,9 +3,10 @@ locals {
 }
 
 #module "meta" {
-  #source = "../meta"
+  source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
   #source = "${path.module}/../meta"
-  #source = "/home/n/Desktop/Development/modules/meta"       # Hardcoded due to Terragrunt cache structure
+  #source = "../meta"
+  #source = "/home/n/Desktop/Development/modules/meta"
   #meta   = var.meta
 #}
 
