@@ -2,12 +2,16 @@ locals {
   region = var.region
 }
 
+module "meta" {
+  source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
+  meta   = var.meta
+}
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 
-  name = "${var.meta.basename}-${var.meta.environment}"
-
+  name = module.meta.name
   cidr = var.cidr
 
   azs                           = ["${local.region}a", "${local.region}b"]
@@ -31,7 +35,7 @@ module "vpc" {
   create_flow_log_cloudwatch_iam_role  = true
   flow_log_max_aggregation_interval    = 60
   vpc_flow_log_tags = {
-    Name = "${var.meta.basename}-${var.meta.environment}-all-traffic"
+    Name = "${module.meta.name}-all-traffic"
   }
 
   # required for service discovery
