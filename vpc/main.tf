@@ -41,9 +41,9 @@ module "vpc" {
   create_flow_log_cloudwatch_iam_role  = true
   flow_log_max_aggregation_interval    = 60
   vpc_flow_log_tags = {
-    Name = "${module.meta.name}-all-traffic"
+    #Name = "${module.meta.name}-all-traffic"
+    Name = "${var.meta.basename}-${var.meta.environment}-all-traffic"
   }
-  #Name = "${var.meta.basename}-${var.meta.environment}-all-traffic"
 
   # required for service discovery
   enable_dns_hostnames = true
