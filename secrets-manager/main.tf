@@ -1,5 +1,5 @@
 module "meta" {
-  source = "../meta"
+  source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
   meta   = var.meta
 }
 
