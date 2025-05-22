@@ -5,7 +5,8 @@ variable "meta" {
     environment = string
   })
 }
-
+                                                # Här sätts alla default inställningar för RDS
+                                                # De som defineras i TG skrivs över, resten blir default
 variable "engine_version" {
   type        = string
   description = "The engine version to use"

@@ -1,4 +1,4 @@
-locals {                                      # Skapar lokal variabel "region" som  
+locals {                                      # Skapar lokal variabel "region" som är definerat i TG 
   region = var.region
 }
 
