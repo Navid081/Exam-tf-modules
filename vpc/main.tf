@@ -1,20 +1,20 @@
-locals {                                      # Skapar lokal variabel "region" som är definerat i TG 
+locals {                                      # Sätter variabeln i TG
   region = var.region
 }
 
-module "meta" {                               # Anropar separat modul "meta" sköter metadata (namnkonventioner tags etc)
-                                              # jag använder "ownre, basename, environment"
+module "meta" {
+  # Anropar separat modul "meta" sköter metadata (namnkonventioner tags etc)
   source = "git::https://github.com/Navid081/Exam-tf-modules.git//meta?ref=main"
   meta   = var.meta
 }
 
-module "vpc" {                                 # Anropar vpc modul från terraform-aws-modules"
-                                               # Den bygger VPC:n automatiskt från inputs jag skickar in
+module "vpc" {                                        # Anropar vpc modul från terraform-aws-modules"
+                                                      # Den bygger VPC:n automatiskt från inputs jag skickar in
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 
-  name = module.meta.name                      # namnet sätts baserat på meta-modulen.
-  cidr = var.cidr                              # VPC:ns övergripande IP-nät
+  name = module.meta.name                             # namnet sätts baserat på meta-modulen.
+  cidr = var.cidr                                     # VPC:ns övergripande nät
 
   azs                           = ["${local.region}a", "${local.region}b"]    # eu-north-1a och 1b
   private_subnets               = var.private_subnets                         # skapar tre subnät inom VPC
